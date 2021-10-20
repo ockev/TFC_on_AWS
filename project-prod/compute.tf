@@ -43,16 +43,16 @@ resource "aws_instance" "web-server" {
     tags = {
         Name = "kevin-${var.env}-web-server"
         #use this to show Sentinel Policy check
-        #Department = "prod-apps"
+        Department = "prod-apps"
         Billable = true 
     }
 }
 
-module "s3-bucket" {
-  source  = "app.terraform.io/koconnor/s3-bucket/aws"
-  version = "2.6.0"
-  # insert required variables here
-}
+# module "s3-bucket" {
+#   source  = "app.terraform.io/koconnor/s3-bucket/aws"
+#   version = "2.6.0"
+#   # insert required variables here
+# }
 
 
 
