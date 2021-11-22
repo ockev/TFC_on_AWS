@@ -43,7 +43,7 @@ resource "aws_instance" "web-server" {
     tags = {
         Name = "kevin-${var.env}-web-server"
         #use this to show Sentinel Policy check
-        #Department = "prod-apps"
+        Department = "prod-apps"
         Billable = true 
     }
 }
