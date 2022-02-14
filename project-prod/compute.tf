@@ -44,10 +44,9 @@ resource "aws_instance" "web-server" {
         Name = "kevin-${var.env}-web-server"
         #use this to show Sentinel Policy check
         Department = "prod-apps"
-        #Billable = true 
+        Billable = true 
     }
 }
-
 
 module "s3-bucket" {
   source  = "terraform-aws-modules/s3-bucket/aws"
