@@ -44,7 +44,7 @@ resource "aws_instance" "web-server" {
     }
 }
 
-resource "aws_instance" "app-server" {
+resource "aws_instance" "app-server1" {
     ami = data.aws_ami.latest-ubuntu.id
     instance_type = "t2.micro"
     availability_zone = var.zone
@@ -59,8 +59,8 @@ resource "aws_instance" "app-server" {
     }
 }
 
-module "s3-bucket" {
-  source  = "terraform-aws-modules/s3-bucket/aws"
-  version = "3.0.1"
-  # insert required variables here
-}
+# module "s3-bucket" {
+#   source  = "terraform-aws-modules/s3-bucket/aws"
+#   version = "3.0.1"
+#   # insert required variables here
+# }
