@@ -19,7 +19,7 @@ data "aws_ami" "latest-ubuntu" {
 
 # Create web ubuntu server and install/enable apache2
 
-resource "aws_instance" "web-server" {
+resource "aws_instance" "web-server1" {
   #  ami = "ami-013f17f36f8b1fefb" -- this would be for pinning a specific AMI for deployment
   #  ami = var.ami_id # -- same as above, this would be for pinning a specific AMI for deployment; but it would be passed in as a variable
 
@@ -48,11 +48,11 @@ resource "aws_instance" "web-server" {
     }
 }
 
-module "s3-bucket" {
-  source  = "terraform-aws-modules/s3-bucket/aws"
-  version = "3.0.1"
-  # insert required variables here
-}
+# module "s3-bucket" {
+#   source  = "terraform-aws-modules/s3-bucket/aws"
+#   version = "3.0.1"
+#   # insert required variables here
+# }
 
 
 
