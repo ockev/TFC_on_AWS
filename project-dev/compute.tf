@@ -59,8 +59,8 @@ resource "aws_instance" "app-server2" {
     }
 }
 
-# module "s3-bucket" {
-#   source  = "terraform-aws-modules/s3-bucket/aws"
-#   version = "3.0.1"
-#   # insert required variables here
-# }
+module "s3-bucket" {
+  source  = "terraform-aws-modules/s3-bucket/aws"
+  version = "3.0.1"
+  # insert required variables here
+}
