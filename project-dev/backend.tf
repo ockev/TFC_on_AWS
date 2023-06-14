@@ -10,14 +10,14 @@ terraform {
     }
   }
 
-  cloud {
-    organization = "koconnor"
-    hostname     = "app.terraform.io"
+  # cloud {
+  #   organization = "koconnor"
+  #   hostname     = "app.terraform.io"
 
-    workspaces {
-      name = "learn-hcp-packer-run-tasks-data-source-validation"
-    }
-  }
+  #   workspaces {
+  #     name = "learn-hcp-packer-run-tasks-data-source-validation"
+  #   }
+  # }
 }
 
 
@@ -29,16 +29,16 @@ terraform {
 # }
 
 
-# terraform {
-#   backend "remote" {
-#     hostname = "app.terraform.io"
-#     organization = "koconnor"
+terraform {
+  backend "remote" {
+    hostname = "app.terraform.io"
+    organization = "koconnor"
 
-#     workspaces {
-#       name = "TFC_on_AWS_Dev"
-#     }
-#   }
-# }
+    workspaces {
+      name = "TFC_on_AWS_Dev"
+    }
+  }
+}
 
 # # #storing state in s3, allows collaboration, portability; locking also in effect to prevent dupes; really enables ci/cd if setup this way; officially called remote state
 # # terraform {
