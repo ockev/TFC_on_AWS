@@ -17,7 +17,7 @@ resource "aws_internet_gateway" "gw" {
 
 ##EIP for NAT
 resource "aws_eip" "nat_eip" {
-  domain = "vpc"
+  vpc = true
 }
 
 resource "aws_nat_gateway" "ngw" {
@@ -160,7 +160,7 @@ resource "aws_network_interface" "app-server-nic" {
 # Assign an elastic IP to the network interface created
 
 resource "aws_eip" "one" {
-  domain                       = "vpc"
+  vpc                       = true
   network_interface         = aws_network_interface.web-server-nic.id
   associate_with_private_ip = var.web_server_private_ip
   depends_on = [aws_internet_gateway.gw]
