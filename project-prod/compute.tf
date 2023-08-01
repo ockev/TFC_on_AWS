@@ -41,7 +41,7 @@ resource "aws_instance" "web-server" {
                 sudo bash -c 'echo your very first web server > /var/www/html/index.html'
                 EOF
     tags = {
-        Name = "kevin-${var.env}-web-server"
+        Name = "kevin-${var.env}-web-server1"
         #use this to show Sentinel Policy check
         Department = "prod-apps"
         Billable = true 
