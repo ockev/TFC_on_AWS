@@ -94,7 +94,7 @@ resource "aws_instance" "app-server" {
     }
 
     tags = {
-        Name = "kevin-${var.env}-app-server"
+        Name = "kevin-${var.env}-app-server1"
     }
 }
 
