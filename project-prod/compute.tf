@@ -58,18 +58,18 @@ resource "aws_instance" "web-server" {
                 sudo bash -c 'echo your very first web server > /var/www/html/index.html'
                 EOF
     tags = {
-        Name = "kevin-${var.env}-web-server1"
+        Name = "kevin-${var.env}-web-server"
         #use this to show Sentinel Policy check
         Department = "prod-apps"
         Billable = true 
     }
 }
 
-# module "s3-bucket" {
-#   source  = "terraform-aws-modules/s3-bucket/aws"
-#   version = "3.0.1"
-#   # insert required variables here
-# }
+module "s3-bucket" {
+  source  = "terraform-aws-modules/s3-bucket/aws"
+  version = "3.0.1"
+  # insert required variables here
+}
 
 
 
