@@ -18,7 +18,7 @@ data "hcp_packer_image" "ubuntu_us_east_2" {
 }
 
 resource "aws_instance" "app_server" {
-  ami           = data.hcp_packer_image.ubuntu_us_east_2.cloud_image_id
+ami           = data.hcp_packer_image.ubuntu_us_east_2.cloud_image_id  
   instance_type = "t2.micro"
   tags = {
     Name = "Learn-HCP-Packer"
@@ -95,7 +95,7 @@ resource "aws_instance" "web-server" {
 }
 
 resource "aws_instance" "app-server" {
-    ami = "ami-01f6e9c04b26f2d84"
+    ami           = data.hcp_packer_image.ubuntu_us_east_2.cloud_image_id
     instance_type = "t2.micro"
     availability_zone = var.zone
     
