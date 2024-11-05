@@ -1,5 +1,8 @@
 #packer Config start
-provider "hcp" {}
+provider "hcp" {
+  client_id = ""
+  client_secret = ""
+}
 
 provider "aws" {
   region = var.region
