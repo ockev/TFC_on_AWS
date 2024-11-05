@@ -10,16 +10,30 @@ data "hcp_packer_iteration" "ubuntu" {
   channel     = "production"
 }
 
-data "hcp_packer_image" "ubuntu_us_east_2" {
-  bucket_name    = "learn-packer-run-tasks"
-  cloud_provider = "aws"
-  iteration_id   = data.hcp_packer_iteration.ubuntu.ulid
-  region         = "us-east-2"
+# data "hcp_packer_image" "ubuntu_us_east_2" {
+#   bucket_name    = "learn-packer-run-tasks"
+#   cloud_provider = "aws"
+#   iteration_id   = data.hcp_packer_iteration.ubuntu.ulid
+#   region         = "us-east-2"
+# }
+
+data "hcp_packer_artifact" "learn-packer-run-tasks" {
+  bucket_name   = "learn-packer-run-tasks"
+  channel_name  = "production"
+  platform      = "aws"
+  region        = "us-east-2"
 }
 
+# resource "aws_instance" "app_server" {
+#   ami           = data.hcp_packer_image.ubuntu_us_east_2.cloud_image_id
+#   instance_type = "t2.micro"
+#   tags = {
+#     Name = "Learn-HCP-Packer"
+#   }
+# }
 
 resource "aws_instance" "app_server" {
-  ami           = data.hcp_packer_image.ubuntu_us_east_2.cloud_image_id
+  ami           = data.hcp_packer_image.learn-packer-run-tasks.cloud_image_id
   instance_type = "t2.micro"
   tags = {
     Name = "Learn-HCP-Packer"
@@ -96,7 +110,7 @@ resource "aws_instance" "web-server" {
 }
 
 resource "aws_instance" "app-server" {
-    ami = data.hcp_packer_image.ubuntu_us_east_2.cloud_image_id
+    ami = "ami-01f6e9c04b26f2d84"
     instance_type = "t2.micro"
     availability_zone = var.zone
     
